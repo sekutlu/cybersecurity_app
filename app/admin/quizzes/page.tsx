@@ -14,10 +14,10 @@ import { useAuth } from '@/hooks/useAuth';
 export default function AdminQuizzesPage() {
   const router = useRouter();
   const { isAuthenticated, loading: authLoading } = useAuth();
-  const [quizzes, setQuizzes] = useState([]);
-  const [lessons, setLessons] = useState([]);
+  const [quizzes, setQuizzes] = useState<any[]>([]);
+  const [lessons, setLessons] = useState<any[]>([]);
   const [showForm, setShowForm] = useState(false);
-  const [editingQuiz, setEditingQuiz] = useState(null);
+  const [editingQuiz, setEditingQuiz] = useState<any>(null);
   const [showEditForm, setShowEditForm] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
@@ -64,7 +64,7 @@ export default function AdminQuizzesPage() {
     });
   };
   
-  const addQuestionToExisting = async (quizId) => {
+  const addQuestionToExisting = async (quizId: string) => {
     try {
       const response = await fetch(`/api/quizzes/${quizId}`, {
         method: 'PUT',
@@ -89,7 +89,7 @@ export default function AdminQuizzesPage() {
     }
   };
 
-  const startEditQuiz = (quiz) => {
+  const startEditQuiz = (quiz: any) => {
     setEditingQuiz(quiz);
     setFormData({
       title: quiz.title,
@@ -102,7 +102,7 @@ export default function AdminQuizzesPage() {
     setShowEditForm(true);
   };
 
-  const handleEditSubmit = async (e) => {
+  const handleEditSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const response = await fetch(`/api/quizzes/${editingQuiz._id}`, {
@@ -139,24 +139,24 @@ export default function AdminQuizzesPage() {
     }
   };
 
-  const removeQuestion = (index) => {
+  const removeQuestion = (index: number) => {
     const updatedQuestions = formData.questions.filter((_, i) => i !== index);
     setFormData({ ...formData, questions: updatedQuestions });
   };
 
-  const updateQuestion = (index, field, value) => {
+  const updateQuestion = (index: number, field: string, value: string) => {
     const updatedQuestions = [...formData.questions];
     updatedQuestions[index] = { ...updatedQuestions[index], [field]: value };
     setFormData({ ...formData, questions: updatedQuestions });
   };
 
-  const updateOption = (questionIndex, optionIndex, value) => {
+  const updateOption = (questionIndex: number, optionIndex: number, value: string) => {
     const updatedQuestions = [...formData.questions];
     updatedQuestions[questionIndex].options[optionIndex] = value;
     setFormData({ ...formData, questions: updatedQuestions });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const userId = localStorage.getItem('userId');
@@ -277,7 +277,7 @@ export default function AdminQuizzesPage() {
                       required
                     >
                       <option value="">Select a lesson</option>
-                      {lessons.map((lesson) => (
+                      {lessons.map((lesson: any) => (
                         <option key={lesson._id} value={lesson._id}>
                           {lesson.title}
                         </option>
@@ -315,7 +315,7 @@ export default function AdminQuizzesPage() {
                     </Button>
                   </div>
 
-                  {formData.questions.map((question, qIndex) => (
+                  {formData.questions.map((question: any, qIndex: number) => (
                     <Card key={qIndex} className="bg-slate-700 border-slate-600">
                       <CardHeader>
                         <div className="flex justify-between items-center">
@@ -345,7 +345,7 @@ export default function AdminQuizzesPage() {
                         </div>
 
                         <div className="grid md:grid-cols-2 gap-4">
-                          {question.options.map((option, oIndex) => (
+                          {question.options.map((option: string, oIndex: number) => (
                             <div key={oIndex}>
                               <Label className="text-white">Option {oIndex + 1}</Label>
                               <Input
@@ -421,7 +421,7 @@ export default function AdminQuizzesPage() {
         )}
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {quizzes.map((quiz) => (
+          {quizzes.map((quiz: any) => (
             <Card key={quiz._id} className="bg-slate-800 border-slate-700 hover:border-green-400/50 transition-colors">
               <CardHeader>
                 <CardTitle className="text-white text-lg">{quiz.title}</CardTitle>

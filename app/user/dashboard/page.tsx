@@ -32,8 +32,8 @@ export default function UserDashboard() {
   };
   
   const [dailyTip, setDailyTip] = useState('');
-  const [localProgress, setLocalProgress] = useState([]);
-  const [lessonProgress, setLessonProgress] = useState([]);
+  const [localProgress, setLocalProgress] = useState<any[]>([]);
+  const [lessonProgress, setLessonProgress] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -64,7 +64,7 @@ export default function UserDashboard() {
         if (storedProgress) {
           try {
             const allProgress = JSON.parse(storedProgress);
-            const userProgress = allProgress.filter((p) => p.userId === userId);
+            const userProgress = allProgress.filter((p: any) => p.userId === userId);
             setLocalProgress(userProgress);
           } catch (e) {
             localStorage.removeItem('quizProgress');
@@ -78,7 +78,7 @@ export default function UserDashboard() {
         if (storedLessonProgress) {
           try {
             const allLessonProgress = JSON.parse(storedLessonProgress);
-            const userLessonProgress = allLessonProgress.filter((p) => p.userId === userId);
+            const userLessonProgress = allLessonProgress.filter((p: any) => p.userId === userId);
             setLessonProgress(userLessonProgress);
           } catch (e) {
             localStorage.removeItem('lessonProgress');
@@ -106,9 +106,9 @@ export default function UserDashboard() {
       averageScore: 0,
     };
     
-    const completedLessons = lessonProgress.filter(p => p.status === 'completed').length;
-    const startedLessons = lessonProgress.filter(p => p.status === 'started').length;
-    const enrolledLessons = lessonProgress.filter(p => p.status === 'enrolled').length;
+    const completedLessons = lessonProgress.filter((p: any) => p.status === 'completed').length;
+    const startedLessons = lessonProgress.filter((p: any) => p.status === 'started').length;
+    const enrolledLessons = lessonProgress.filter((p: any) => p.status === 'enrolled').length;
     
     return {
       ...quizStats,
@@ -303,8 +303,8 @@ export default function UserDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  {localProgress.filter(p => p.passed).length > 0 ? (
-                    localProgress.filter(p => p.passed).map((quiz, index) => (
+                  {localProgress.filter((p: any) => p.passed).length > 0 ? (
+                    localProgress.filter((p: any) => p.passed).map((quiz: any, index: number) => (
                       <Badge key={index} className="bg-green-400 text-slate-900 px-3 py-1 font-semibold">
                         Quiz Master
                       </Badge>
@@ -332,7 +332,7 @@ export default function UserDashboard() {
               <CardContent>
                 {localProgress.length > 0 ? (
                   <div className="space-y-3">
-                    {localProgress.slice(-5).reverse().map((quiz, index) => (
+                    {localProgress.slice(-5).reverse().map((quiz: any, index: number) => (
                       <div key={index} className="flex justify-between items-center p-3 bg-slate-700 rounded-lg border border-slate-600">
                         <div>
                           <p className="font-medium text-white">Quiz Completed</p>

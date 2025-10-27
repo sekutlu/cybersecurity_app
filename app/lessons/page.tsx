@@ -62,8 +62,8 @@ export default function LessonsPage() {
     router.push('/');
   };
   
-  const [lessons, setLessons] = useState([]);
-  const [progress, setProgress] = useState([]);
+  const [lessons, setLessons] = useState<Lesson[]>([]);
+  const [progress, setProgress] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -94,7 +94,7 @@ export default function LessonsPage() {
           const stored = localStorage.getItem('lessonProgress');
           if (stored) {
             const allProgress = JSON.parse(stored);
-            const userProgress = allProgress.filter((p) => p.userId === userId);
+            const userProgress = allProgress.filter((p: any) => p.userId === userId);
             setProgress(userProgress);
           }
         }
@@ -190,9 +190,9 @@ export default function LessonsPage() {
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {Array.isArray(lessons) && lessons.map((lesson, index) => {
+            {Array.isArray(lessons) && lessons.map((lesson: Lesson, index: number) => {
               const userId = localStorage.getItem('userId');
-              const lessonProgress = progress.find(p => p.lessonId === lesson._id && p.userId === userId);
+              const lessonProgress = progress.find((p: any) => p.lessonId === lesson._id && p.userId === userId);
               return (
                 <LessonCard
                   key={lesson._id}

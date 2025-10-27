@@ -48,7 +48,7 @@ export default function ManageUsersPage() {
   }, [isAuthenticated, authLoading]);
 
   useEffect(() => {
-    const filtered = users.filter(user =>
+    const filtered = users.filter((user: User) =>
       user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       user.email.toLowerCase().includes(searchTerm.toLowerCase())
     );

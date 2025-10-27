@@ -15,9 +15,9 @@ import { useAuth } from '@/hooks/useAuth';
 export default function AdminLessonsPage() {
   const router = useRouter();
   const { isAuthenticated, loading: authLoading } = useAuth();
-  const [lessons, setLessons] = useState([]);
+  const [lessons, setLessons] = useState<any[]>([]);
   const [showForm, setShowForm] = useState(false);
-  const [editingLesson, setEditingLesson] = useState(null);
+  const [editingLesson, setEditingLesson] = useState<any>(null);
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -62,7 +62,7 @@ export default function AdminLessonsPage() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const userId = localStorage.getItem('userId');
@@ -95,7 +95,7 @@ export default function AdminLessonsPage() {
     }
   };
 
-  const extractYouTubeId = (url) => {
+  const extractYouTubeId = (url: string) => {
     const regex = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/;
     const match = url.match(regex);
     return match ? match[1] : url;
@@ -262,7 +262,7 @@ export default function AdminLessonsPage() {
         )}
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {lessons.map((lesson) => (
+          {lessons.map((lesson: any) => (
             <Card key={lesson._id} className="bg-slate-800 border-slate-700 hover:border-green-400/50 transition-colors">
               <CardHeader>
                 <CardTitle className="text-white text-lg">{lesson.title}</CardTitle>

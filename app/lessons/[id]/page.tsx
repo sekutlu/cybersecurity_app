@@ -42,7 +42,7 @@ export default function LessonDetailPage() {
   const [isStarted, setIsStarted] = useState(false);
   const [isEnrolled, setIsEnrolled] = useState(false);
   const [videoCompleted, setVideoCompleted] = useState(false);
-  const [quizzes, setQuizzes] = useState([]);
+  const [quizzes, setQuizzes] = useState<any[]>([]);
 
   useEffect(() => {
     if (!authLoading && !isAuthenticated) {
