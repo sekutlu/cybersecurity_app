@@ -1,0 +1,12 @@
+[
+  {
+    "username": "JohnDoe",
+    "quizzesTaken": 5,
+    "totalQuestions": 50,
+    "correctAnswers": 42,
+    "averageScore": 84,
+    "badges": ["Cyber Learner", "Quiz Master"],
+    "completedLessons": [1, 2, 3],
+    "lastActive": "2025-10-25"
+  }
+]

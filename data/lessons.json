@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Password Safety",
+    "description": "Learn how to create strong passwords and protect your accounts.",
+    "content": "A strong password is your first line of defense against cyber threats. Use at least 12 characters combining uppercase, lowercase, numbers, and symbols. Avoid common words, personal information, or predictable patterns. Consider using a password manager to generate and store unique passwords for each account. Enable two-factor authentication whenever possible for an extra layer of security.",
+    "icon": "lock"
+  },
+  {
+    "id": 2,
+    "title": "Phishing Awareness",
+    "description": "Identify and avoid fake emails, messages, and websites.",
+    "content": "Phishing attacks trick users into revealing sensitive information through fake communications. Watch for suspicious sender addresses, urgent language, spelling errors, and requests for personal data. Never click links or download attachments from unknown sources. Verify legitimacy by contacting the organization directly through official channels. Report phishing attempts to your IT team or email provider.",
+    "icon": "alert-triangle"
+  },
+  {
+    "id": 3,
+    "title": "Social Engineering",
+    "description": "Understand manipulation tactics used by cybercriminals.",
+    "content": "Social engineering exploits human psychology rather than technical vulnerabilities. Attackers may impersonate trusted individuals, create urgency, or appeal to emotions to bypass security measures. Always verify identities through independent channels, be skeptical of unsolicited requests, and never share sensitive information without proper authorization. Trust your instincts if something feels wrong.",
+    "icon": "users"
+  },
+  {
+    "id": 4,
+    "title": "Data Protection",
+    "description": "Keep your personal and organizational data secure.",
+    "content": "Proper data protection involves encryption, secure storage, and careful sharing practices. Encrypt sensitive files, use secure cloud services, and back up data regularly. Be mindful of what you share on social media and public platforms. Dispose of old devices and documents securely. Follow your organization's data handling policies and regulations like GDPR.",
+    "icon": "shield"
+  },
+  {
+    "id": 5,
+    "title": "Safe Browsing",
+    "description": "Navigate the internet securely and avoid threats.",
+    "content": "Safe browsing practices protect you from malicious websites and downloads. Look for HTTPS connections, especially when entering sensitive information. Keep browsers and plugins updated. Use reputable antivirus software and ad blockers. Be cautious with public Wi-Fi and consider using a VPN. Avoid downloading software from untrusted sources.",
+    "icon": "globe"
+  },
+  {
+    "id": 6,
+    "title": "Mobile Security",
+    "description": "Secure your smartphones and tablets from threats.",
+    "content": "Mobile devices require special security attention. Keep operating systems and apps updated, use strong device passwords or biometrics, and enable remote wipe capabilities. Only download apps from official stores and review permissions carefully. Be cautious on public Wi-Fi and disable Bluetooth when not needed. Encrypt your device and back up data regularly.",
+    "icon": "smartphone"
+  }
+]
