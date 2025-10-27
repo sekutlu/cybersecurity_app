@@ -69,7 +69,7 @@ export default function AdminDashboard() {
         // Calculate active users (users active in last 7 days)
         const oneWeekAgo = new Date();
         oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-        const activeUsers = users.filter(user => 
+        const activeUsers = users.filter((user: any) => 
           new Date(user.lastActive) > oneWeekAgo
         ).length;
 
